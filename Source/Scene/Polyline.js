@@ -81,6 +81,7 @@ import Material from './Material.js';
         this._boundingVolume = BoundingSphere.fromPoints(this._actualPositions);
         this._boundingVolumeWC = BoundingSphere.transform(this._boundingVolume, this._modelMatrix);
         this._boundingVolume2D = new BoundingSphere(); // modified in PolylineCollection
+        this._destroyed = false;
     }
 
     var POSITION_INDEX = Polyline.POSITION_INDEX = 0;
@@ -370,5 +371,6 @@ import Material from './Material.js';
         this._pickId = this._pickId && this._pickId.destroy();
         this._material = this._material && this._material.destroy();
         this._polylineCollection = undefined;
+        this._destroyed = true;
     };
 export default Polyline;
